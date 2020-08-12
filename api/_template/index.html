@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="ふみをは本日 {{total}} 連休目です。">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ふみをは本日何連休目？">
+    <meta name="twitter:description" content="ふみをは本日 {{total}} 連休目です。">
+    <meta name="twitter:image" content="{{og_image_url}}">
+    <title>ふみをは本日何連休目？</title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <main>
+      <div>ふみをは本日</div>
+      <div id="holidays">{{total}}</div>
+      <div>連休目です｡</div>
+      <div id="years">（ {{years_text}} ）</div>
+      <div id="tweet">ツイート</div>
+    </main>
+    <script>
+      document.getElementById('tweet').addEventListener('click', () => {
+        const url = new URL('https://twitter.com/intent/tweet');
+        url.searchParams.set('url', '{{tweet_url}}');
+        url.searchParams.set('text', `ふみをは本日 {{total}} 連休目（{{years_text}}）です。`);
+        location.href = url;
+      });
+    </script>
+  </body>
+</html>

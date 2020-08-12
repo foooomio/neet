@@ -1,0 +1,7 @@
+{
+  "routes": [
+    { "src": "/", "dest": "/api/index.js" },
+    { "src": "/([0-9]{8})/([0-9a-f]{32})", "dest": "/api/index.js?date=$1&hash=$2" },
+    { "src": "/og-image/([0-9]{8})/([0-9a-f]{32})", "dest": "/api/og-image.js?date=$1&hash=$2" }
+  ]
+}
