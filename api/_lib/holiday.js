@@ -1,5 +1,6 @@
 const DAY = 24 * 60 * 60 * 1000;
-const FROM = new Date(2017, 3 - 1, 10);
+const JST = 9 * 60 * 60 * 1000;
+const FROM = new Date(Date.UTC(2017, 3 - 1, 10) - JST);
 
 exports.calcTotal = (date) => {
   return Math.ceil((date - FROM + 1) / DAY);
