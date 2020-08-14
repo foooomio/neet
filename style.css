@@ -15,7 +15,7 @@ body {
   font-size: 1.2rem;
   font-weight: bold;
   display: inline-block;
-  cursor: pointer;
+  text-decoration: none;
   color: #fff;
   box-sizing: border-box;
   text-align: center;

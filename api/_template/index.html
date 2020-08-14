@@ -17,15 +17,13 @@
       <div id="holidays">{{total}}</div>
       <div>連休目です｡</div>
       <div id="years">（ {{years_text}} ）</div>
-      <div id="tweet">ツイート</div>
+      <a id="tweet">ツイート</a>
     </main>
     <script>
-      document.getElementById('tweet').addEventListener('click', () => {
-        const url = new URL('https://twitter.com/intent/tweet');
-        url.searchParams.set('url', '{{tweet_url}}');
-        url.searchParams.set('text', `ふみをは本日 {{total}} 連休目（{{years_text}}）です。`);
-        location.href = url;
-      });
+      const url = new URL('https://twitter.com/intent/tweet');
+      url.searchParams.set('url', '{{tweet_url}}');
+      url.searchParams.set('text', `ふみをは本日 {{total}} 連休目（{{years_text}}）です。`);
+      document.getElementById('tweet').href = url;
     </script>
   </body>
 </html>
