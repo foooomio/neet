@@ -3,13 +3,13 @@ const { md5 } = require('./_lib/md5');
 const { parseYMD } = require('./_lib/ymd');
 const { calcTotal } = require('./_lib/holiday');
 
-const SALT = process.env.SECRET || '';
-const CLOUD_NAME = process.env.CLOUD_NAME || '';
+const SECRET = process.env.SECRET ?? '';
+const CLOUD_NAME = process.env.CLOUD_NAME ?? '';
 
 module.exports = (req, res) => {
   const { date, hash } = req.query;
 
-  if (!date || !hash || md5(date + SALT) !== hash) {
+  if (!date || !hash || md5(date + SECRET) !== hash) {
     res.status(400).end();
     return;
   }
