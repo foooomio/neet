@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "types": [
+      "https://deno.land/x/deploy@0.4.0/types/deploy.ns.d.ts",
+      "https://deno.land/x/deploy@0.4.0/types/deploy.window.d.ts",
+      "https://deno.land/x/deploy@0.4.0/types/deploy.fetchevent.d.ts"
+    ]
+  }
+}
