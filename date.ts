@@ -13,7 +13,7 @@ export function parseYMD(str: string): Date {
 }
 
 export function formatYMD(date: Date): string {
-  return format(date, "yyyyMMdd");
+  return format(new Date(date.getTime() + JST), "yyyyMMdd");
 }
 
 export function calcTotal(date: Date): number {
