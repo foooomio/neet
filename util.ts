@@ -1,15 +1,18 @@
-import { createHash } from "https://deno.land/std@0.106.0/hash/mod.ts";
+import { crypto } from "https://deno.land/std@0.112.0/crypto/mod.ts";
 
-export function md5(text: string): string {
-  return createHash("md5").update(text).toString();
+export async function md5(text: string): Promise<string> {
+  const data = new TextEncoder().encode(text);
+  const hash = await crypto.subtle.digest("MD5", data);
+  const array = [...new Uint8Array(hash)];
+  return array.map((b) => b.toString(16).padStart(2, "0")).join("");
 }
 
-export function validate(
-  date?: string,
-  hash?: string,
-  secret?: string,
-): boolean {
-  return !!date && !!hash && md5(date + secret) === hash;
+export async function validate(
+  date: string | undefined,
+  hash: string | undefined,
+  secret: string | undefined,
+): Promise<boolean> {
+  return !!date && !!hash && await md5(date + secret) === hash;
 }
 
 export function parsePath(pathname: string): { date?: string; hash?: string } {

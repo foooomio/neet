@@ -3,7 +3,7 @@ import {
   format,
   HOUR,
   parse,
-} from "https://deno.land/std@0.106.0/datetime/mod.ts";
+} from "https://deno.land/std@0.112.0/datetime/mod.ts";
 
 const JST = 9 * HOUR;
 const START = new Date(Date.UTC(2017, 3 - 1, 10) - JST);

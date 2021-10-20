@@ -7,7 +7,7 @@ export async function getPage(url: URL): Promise<Response> {
   const today = new Date();
 
   const todayYMD = formatYMD(today);
-  const todayHash = md5(todayYMD + Deno.env.get("SECRET"));
+  const todayHash = await md5(todayYMD + Deno.env.get("SECRET"));
 
   const total = calcTotal(today);
   const { years, days } = calcYears(today);
@@ -18,7 +18,7 @@ export async function getPage(url: URL): Promise<Response> {
     ["tweet_url", `https://neet.foooomio.net/${todayYMD}/${todayHash}`],
   ]);
 
-  if (validate(date, hash, Deno.env.get("SECRET"))) {
+  if (await validate(date, hash, Deno.env.get("SECRET"))) {
     data.set(
       "og_image_url",
       `https://neet.foooomio.net/og-image/${date}/${hash}`,
