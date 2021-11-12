@@ -1,4 +1,4 @@
-import { crypto } from "https://deno.land/std@0.112.0/crypto/mod.ts";
+import { crypto } from "https://deno.land/std@0.114.0/crypto/mod.ts";
 
 export async function md5(text: string): Promise<string> {
   const data = new TextEncoder().encode(text);
