@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="ふみをは 1865 連休しました。">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ふみをは本日何連休目？">
+    <meta name="twitter:description" content="ふみをは 1865 連休しました。">
+    <meta name="twitter:image" content="https://neet.foooomio.net/og-image.png">
+    <title>ふみをは本日何連休目？</title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <main>
+      <div>ふみをは</div>
+      <div id="holidays">1865</div>
+      <div>連休しました｡</div>
+      <div>2017/3/10〜2022/4/17</div>
+      <div id="years">（ 5 年 と 39 日 ）</div>
+      <a id="tweet">ツイート</a>
+    </main>
+    <script>
+      const url = new URL('https://twitter.com/intent/tweet');
+      url.searchParams.set('url', 'https://neet.foooomio.net/');
+      url.searchParams.set('text', 'ふみをは 1865 連休（5 年 と 39 日）しました。');
+      document.getElementById('tweet').href = url;
+    </script>
+  </body>
+</html>
